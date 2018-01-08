@@ -17,7 +17,7 @@ PMMPプラグインです(Written in PHP)
 
 ## Usage
 
-プラグイン起動後、`plugins/ImageLib/image/`に画像(*.jpg,*.png)を入れるだけです。
+プラグイン起動後、`plugins/ImageLib/image/`に画像(*.jpg,*.png)を入れるだけです。自動的に128x128にリサイズされます。
 
 ## For Developers
 
