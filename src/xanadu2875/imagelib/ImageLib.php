@@ -13,6 +13,7 @@ use pocketmine\event\{Listener, player\PlayerJoinEvent};
 define("RAND_MAX", 1000000);
 define("WIDTH", 128);
 define("HEIGHT", 128);
+define("SCALE", 1);
 
 class ImageLib extends PluginBase implements Listener
 {
@@ -95,7 +96,7 @@ class ImageLib extends PluginBase implements Listener
       $pk->type = ClientboundMapItemDataPacket::BITFLAG_TEXTURE_UPDATE;
       $pk->height = HEIGHT;
       $pk->width = WIDTH;
-      $pk->scale = 1;
+      $pk->scale = SCALE;
       $pk->colors = $colors;
 
       $this->images[(int)$id] = $pk;
