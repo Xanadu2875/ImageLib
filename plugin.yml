@@ -1,6 +1,7 @@
 name: ImageLib
 main: xanadu2875\imagelib\ImageLib
 version: 0.1.2
+load: STARTUP
 api:
 - 2.0.0
 - 3.0.0
