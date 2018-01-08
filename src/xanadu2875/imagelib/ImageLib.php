@@ -15,12 +15,12 @@ define("HEIGHT", 127);
 
 class ImageLib extends PluginBase
 {
-  private $plugin;
+  private static $plugin;
   public $images = [];
 
   public function onLoad()
   {
-    $plugin = $this;
+    self::$plugin = $this;
 
     @mkdir($this->getDataFolder(), 777);
     @mkdir($this->getDataFolder() . "image/", 777);
