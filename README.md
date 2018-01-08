@@ -1,4 +1,4 @@
-# ImgaeLib.
+# ImageLib.
 PMMPプラグインです(Written in PHP)
 
 ## Description
@@ -8,7 +8,7 @@ PMMPプラグインです(Written in PHP)
 
 ## Download
 
-### [![MCBE Forum](https://forum.mcbe.jp/styles/uix_dark/images/logo.png)](https://forum.mcbe.jp/resources/33/)
+### [![MCBE Forum](https://user-images.githubusercontent.com/34952872/34657908-11932076-f46e-11e7-9cf5-60944846ca12.png)](https://forum.mcbe.jp/resources/33/)
 
 ## Demo
 
