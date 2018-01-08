@@ -9,11 +9,12 @@ use pocketmine\utils\{Config, Color};
 use pocketmine\item\Item;
 use pocketmine\network\mcpe\protocol\ClientboundMapItemDataPacket;
 use pocketmine\nbt\tag\StringTag;
+use pocketmine\event\{Listener, player\PlayerJoinEvent};
 define("RAND_MAX", 1000000);
-define("WIDTH", 127);
-define("HEIGHT", 127);
+define("WIDTH", 128);
+define("HEIGHT", 128);
 
-class ImageLib extends PluginBase
+class ImageLib extends PluginBase implements Listener
 {
   private static $plugin;
   public $images = [];
@@ -101,17 +102,29 @@ class ImageLib extends PluginBase
     }
   }
 
+  public function onEnable()
+  {
+    $this->getServer()->getPluginManager()->registerEvents($this, $this);
+  }
+
   public static function getInstance() : PluginBase { return self::$plugin; }
 
   public function getMap(int $id) : Item
   {
-    if(isset($this->$images[$id]))
+    if(isset($this->images[$id]))
     {
       $item = Item::get(Item::FILLED_MAP, 0, 1);
       $tag = $item->getNamedTag();
       $tag->map_uuid = new StringTag("map_uuid", $id);
       $item->setNamedTag($tag);
+      return $item;
     }
     else { return Item::get(Item::AIR, 0, 0); }
+  }
+
+  public function onJoin(PlayerJoinEvent $event)
+  {
+    $player = $event->getPlayer();
+    foreach($this->images as $pk) { $player->dataPacket($pk); }
   }
 }
