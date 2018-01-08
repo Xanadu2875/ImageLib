@@ -5,7 +5,7 @@
 namespace xanadu2875\imagelib;
 
 use pocketmine\plugin\PluginBase;
-use pocketmine\utils\{Config, Color};
+use pocketmine\utils\{Config, Color, Utils};
 use pocketmine\item\Item;
 use pocketmine\network\mcpe\protocol\ClientboundMapItemDataPacket;
 use pocketmine\nbt\tag\StringTag;
@@ -21,6 +21,8 @@ class ImageLib extends PluginBase implements Listener
 
   public function onLoad()
   {
+    if(!$this->checkUpdata()) { $this->getServer()->getLogger()->notice("新しいバージョンがリリースされています。(" . $this->getDescription()->getWebsite() . ")"); }
+
     self::$plugin = $this;
 
     @mkdir($this->getDataFolder(), 777);
@@ -77,8 +79,6 @@ class ImageLib extends PluginBase implements Listener
           continue;
       }
 
-      var_dump($image);
-
       $image = imagescale($image, WIDTH, HEIGHT, IMG_NEAREST_NEIGHBOUR);
 
       for($y = 0;$y < WIDTH; ++$y)
@@ -105,6 +105,8 @@ class ImageLib extends PluginBase implements Listener
   public function onEnable() { $this->getServer()->getPluginManager()->registerEvents($this, $this); }
 
   public static function getInstance() : PluginBase { return self::$plugin; }
+
+  private function checkUpdata() : bool { return str_replace("\n", "",Utils::getURL("https://raw.githubusercontent.com/Xanadu2875/VersionManager/master/ImageLib.txt" . '?' . time() . mt_rand())) === $this->getDescription()->getVersion() ? true : false; }
 
   public function getMap(int $id) : Item
   {
