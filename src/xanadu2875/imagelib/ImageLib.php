@@ -15,11 +15,13 @@ define("HEIGHT", 127);
 
 class ImageLib extends PluginBase
 {
+  private $plugin;
   public $images = [];
-
 
   public function onLoad()
   {
+    $plugin = $this;
+
     @mkdir($this->getDataFolder(), 777);
     @mkdir($this->getDataFolder() . "image/", 777);
 
@@ -98,6 +100,8 @@ class ImageLib extends PluginBase
       $this->images[(int)$id] = $pk;
     }
   }
+
+  public static function getInstance() : PluginBase { return self::$plugin; }
 
   public function getMap(int $id) : Item
   {

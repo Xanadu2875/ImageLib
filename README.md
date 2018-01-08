@@ -8,12 +8,16 @@ PMMPプラグインです(Written in PHP)
 
 ## Download
 
-### [![MCBE Forum](https://forum.mcbe.jp/styles/uix_dark/images/logo.png)]()
+### [![MCBE Forum](https://forum.mcbe.jp/styles/uix_dark/images/logo.png)](https://forum.mcbe.jp/resources/33/)
 
 ## Demo
 
 ![demo1](https://user-images.githubusercontent.com/34952872/34657171-00b1c016-f467-11e7-92e2-b0828d984bec.PNG)
 ![demo2](https://user-images.githubusercontent.com/34952872/34657205-660767ae-f467-11e7-8c6c-51c54c6ba70a.jpg)
+
+## Usage
+
+プラグイン起動後、`plugins/ImageLib/image/`に画像(*.jpg,*.png)を入れるだけです。
 
 ## For Developers
 
@@ -48,6 +52,7 @@ GPLLv3
 
 - 画像のサイズを変更できるようにする
 - 額縁にハメられるようにする
+- コマンドの追加
 
 ## Anything Else
 
