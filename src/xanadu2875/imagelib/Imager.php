@@ -1,10 +1,11 @@
 <?php
 
-namespace xanadu2875\imager;
+//使えるところあったらどんどんコピペしてね♡
+
+namespace xanadu2875\imagelib;
 
 use pocketmine\plugin\PluginBase;
-use pocketmine\utils\{Config, TextFormat as TF, Color};
-use pocketmine\event;
+use pocketmine\utils\{Config, Color};
 use pocketmine\item\Item;
 use pocketmine\network\mcpe\protocol\ClientboundMapItemDataPacket;
 use pocketmine\nbt\tag\StringTag;
@@ -12,9 +13,10 @@ define("RAND_MAX", 1000000);
 define("WIDTH", 127);
 define("HEIGHT", 127);
 
-class Imager extends PluginBase implements event\Listener
+class ImageLib extends PluginBase
 {
   public $images = [];
+
 
   public function onLoad()
   {
@@ -59,7 +61,7 @@ class Imager extends PluginBase implements event\Listener
     {
       $colors = [];
 
-      switch(pathinfo($image)["extension"])
+      switch(strtolower(pathinfo($image)["extension"]))
       {
         case "png":
           if(!$image = @imagecreatefrompng($image)) { continue; }
@@ -97,9 +99,7 @@ class Imager extends PluginBase implements event\Listener
     }
   }
 
-  public function onEnable() { $this->getServer()->getPluginManager()->registerEvents($this, $this); }
-
-  public function getMapWithImage(int $id) : Item
+  public function getMap(int $id) : Item
   {
     if(isset($this->$images[$id]))
     {

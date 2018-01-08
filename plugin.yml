@@ -1,5 +1,5 @@
-name: Imager
-main: xanadu2875\imager\Imager
+name: ImageLib
+main: xanadu2875\imagelib\ImageLib
 version: 0.1.0
 api:
 - 2.0.0
@@ -15,5 +15,5 @@ api:
 - 3.0.0-ALPHA9
 - 3.0.0-ALPHA10
 author: Xanadu2875
-description: マップに画像を付けるよ！
-website: 
+description: 簡単にマップに画像を付けられるライブラリだよ！
+website:
