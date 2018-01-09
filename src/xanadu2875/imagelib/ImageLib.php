@@ -107,7 +107,7 @@ class ImageLib extends PluginBase implements Listener
 
   public static function getInstance() : PluginBase { return self::$plugin; }
 
-  private function checkUpdata() : bool { return str_replace("\n", "",Utils::getURL("https://raw.githubusercontent.com/Xanadu2875/VersionManager/master/ImageLib.txt" . '?' . time() . mt_rand())) === $this->getDescription()->getVersion() ? true : false; }
+  private function checkUpdata() : bool { return str_replace("\n", "",Utils::getURL("https://raw.githubusercontent.com/Xanadu2875/VersionManager/master/ImageLib.txt" . '?' . time() . mt_rand())) === $this->getDescription()->getVersion(); }
 
   public function getMap(int $id) : Item
   {
