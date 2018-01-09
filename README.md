@@ -18,6 +18,7 @@ PMMPプラグインです(Written in PHP)
 ## Usage
 
 プラグイン起動後、`plugins/ImageLib/image/`に画像(*.jpg,*.png)を入れるだけです。自動的に128x128にリサイズされます。
+undefine functionとコンソールに表示された場合は、bin/php/php.iniの;extension=php_gd2.dllのコメントアウトを外してください。
 
 ## For Developers
 
