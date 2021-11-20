@@ -70,14 +70,14 @@ class ImageLib extends PluginBase implements Listener
       switch(strtolower(pathinfo($image)["extension"]))
       {
         case "png":
-          if(!$image = @imagecreatefrompng($image)) { continue; }
+          if(!$image = @imagecreatefrompng($image)) { break; }
           break;
         case "jpg":
         case "jpeg":
-          if(!$image = @imagecreatefromjpeg($image)) { continue; }
+          if(!$image = @imagecreatefromjpeg($image)) { break; }
           break;
         default:
-          continue;
+          break;
       }
 
       $image = imagescale($image, WIDTH, HEIGHT, IMG_NEAREST_NEIGHBOUR);
